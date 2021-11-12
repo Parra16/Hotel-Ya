@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelYa">
         <activity
+            android:name=".ui.PerfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="true" />
         <activity
