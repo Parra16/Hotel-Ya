@@ -11,6 +11,15 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_agregarHotel">Agregar Hotel</string>
+    <string name="menu_editarHotel">Editar Hotel</string>
+    <string name="menu_eliminarHotel">Eliminar Hotel</string>
+    <string name="menu_perfilHotel">perfil Hotel</string>
+
+
+    <!--Botones-->
+    <string name="agregar">Agregar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
 
 
     <!--Hoteles-->

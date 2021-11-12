@@ -141,6 +141,14 @@
                 android:hint="@string/cordenadas_hotel"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ImageView
+            android:id="@+id/CrearHotelivCordenadas"
+            android:layout_width="196dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_menu_camera"
+            android:contentDescription="@string/descripcion_imagen"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -156,7 +164,11 @@
                 android:hint="@string/nombre_hotel"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
+        <Button
+            android:id="@+id/CrearHotelbtnAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agregar"/>
 
 
 
