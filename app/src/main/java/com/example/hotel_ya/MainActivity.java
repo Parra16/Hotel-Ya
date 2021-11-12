@@ -16,8 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotel_ya.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
+    
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 

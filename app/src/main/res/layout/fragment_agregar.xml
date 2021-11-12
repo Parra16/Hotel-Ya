@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.agregarHotel.AgregarFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_hoteles"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/crearivFoto"
+            android:layout_width="196dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_menu_camera"
+            android:contentDescription="@string/descripcion_imagen"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/nombre_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contacto"
+            android:textSize="30dp"
+
+            android:paddingTop="30dp"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="@string/telefono_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/correo_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:hint="@string/direccion_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion_hotel"
+            android:textSize="30dp"
+            android:paddingTop="30dp"
+            />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletEstrellas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="@string/estrellas_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RatingBar
+            android:id="@+id/CrearHotelRBestrellas"
+            android:numStars="5"
+            android:rating="1.5"
+            android:isIndicator="true"
+            android:stepSize="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletCordenadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="@string/cordenadas_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CrearHoteletDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/nombre_hotel"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
