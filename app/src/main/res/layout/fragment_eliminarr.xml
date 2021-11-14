@@ -1,13 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.eliminarHotel.EliminarFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminacion_hoteles"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp"
+            />
+
+        <ImageView
+            android:id="@+id/EliminarHotelivFoto"
+            android:layout_width="196dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_menu_camera"
+            android:contentDescription="@string/descripcion_imagen"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_hotel"
+            android:textSize="30dp"
+            android:paddingTop="30dp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/importante"
+            android:textSize="30dp"
+            android:paddingTop="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mensajeEliminacion"
+            android:textSize="20dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="40dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textSize="30dp"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
