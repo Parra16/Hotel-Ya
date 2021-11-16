@@ -22,4 +22,30 @@
         android:name="com.example.hotel_ya.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_crear_hotel"
+        android:name="com.example.hotel_ya.ui.agregarHotel.AgregarFragment"
+        android:label="@string/menu_agregarHotel"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_editar_hotel"
+        android:name="com.example.hotel_ya.ui.editarHotel.EditarFragment"
+        android:label="@string/menu_agregarHotel"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_eliminar_hotel"
+        android:name="com.example.hotel_ya.ui.eliminarHotel.EliminarFragment"
+        android:label="@string/menu_agregarHotel"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_perfil_hotel"
+        android:name="com.example.hotel_ya.ui.perfilHotel.PerfilHotelFragment"
+        android:label="@string/menu_agregarHotel"
+        tools:layout="@layout/fragment_slideshow" />
+
+
 </navigation>

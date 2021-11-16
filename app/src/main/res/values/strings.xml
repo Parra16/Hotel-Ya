@@ -10,4 +10,38 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_agregarHotel">Agregar Hotel</string>
+    <string name="menu_editarHotel">Editar Hotel</string>
+    <string name="menu_eliminarHotel">Eliminar Hotel</string>
+    <string name="menu_perfilHotel">perfil Hotel</string>
+
+
+    <!--Botones-->
+    <string name="agregar">Agregar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+
+    <string name="ingresar_imagen">Ingresar Imagen</string>
+
+
+
+    <!--Hoteles-->
+    <string name="registro_hoteles">Registro de Hotel</string>
+    <string name="eliminacion_hoteles">Eliminar Hotel</string>
+    <string name="editar_hoteles">Editar Hotel</string>
+    <string name="descripcion_imagen">Descripcion de imagen</string>
+    <string name="nombre_hotel">Nombre del hotel</string>
+    <string name="telefono_hotel">Telefono</string>
+    <string name="correo_hotel">correo</string>
+    <string name="cordenadas_hotel">cordenadas</string>
+    <string name="estrellas_hotel">Estrellas</string>
+    <string name="descripcion_hotel">Descripcion</string>
+    <string name="direccion_hotel">Direccion</string>
+    <string name="contacto">Informacion de Contacto</string>
+    <string name="importante">Importante!!!</string>
+    <string name="mensajeEliminacion">Acaba de acceder a la ventana de eliminacion de su hotel,
+                                      Si continua no podra recuperar los datos de su hotel y si
+                                      Si desea eliminar su hotel presione el boton de abajo</string>
+
+
 </resources>

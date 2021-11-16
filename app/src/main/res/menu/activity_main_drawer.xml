@@ -16,5 +16,22 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/nav_crear_hotel"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_agregarHotel" />
+        <item
+            android:id="@+id/nav_editar_hotel"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/editar_hoteles" />
+        <item
+            android:id="@+id/nav_eliminar_hotel"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/eliminacion_hoteles" />
+        <item
+            android:id="@+id/nav_perfil_hotel"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_perfilHotel" />
     </group>
 </menu>
