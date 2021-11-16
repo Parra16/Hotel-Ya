@@ -6,18 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".ui.LoginActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="2dp">
 
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Daniel"
-            android:textStyle="bold"
-            android:textSize="28dp"/>
+            android:layout_height="match_parent"
+            android:padding="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Iniciar Sesión"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_menu_slideshow"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Correo Electrónico"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <EditText
+                    android:id="@+id/idLoginEditTextCorreoElectronico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="ejemplo@ejemplo.com"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contraseña"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <EditText
+                    android:id="@+id/idLoginEditTextContrasenia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="********"
+                    android:focusable="true"/>
+
+                <Button
+                    android:id="@+id/idLoginButtonIniciarSesion"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Iniciar Sesión"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <Button
+                    android:id="@+id/idLoginButtonRegistrarse"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Registrarse"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <Button
+                    android:id="@+id/idLoginButtonSalir"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Salir"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
 
     </LinearLayout>
 
