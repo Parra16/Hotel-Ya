@@ -5,11 +5,13 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Cerrar Sesión</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_gallery">G Listar</string>
+    <string name="menu_slideshow">S Mi Hotel</string>
+    <string name="menu_mis_habitaciones">Mis Habitaciones</string>
+    <string name="menu_reservacion">Reservacion</string>
     <string name="menu_agregarHotel">Agregar Hotel</string>
     <string name="menu_editarHotel">Editar Hotel</string>
     <string name="menu_eliminarHotel">Eliminar Hotel</string>

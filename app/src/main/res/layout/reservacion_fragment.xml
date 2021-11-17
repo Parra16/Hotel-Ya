@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.reservacion.ReservacionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reservación"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_menu_camera"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filtrar por: "
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal">
+
+                    <RadioButton
+                        android:id="@+id/idReservacionRadioButtonEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado"
+                        android:textSize="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idReservacionRadioButtonMejorCalificados"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mejor Calificación"
+                        android:textSize="10dp"/>
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccione Hotel"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <ListView
+                    android:id="@+id/idReservacionListViewHoteles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:smoothScrollbar="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filtrar por: "
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal">
+
+                    <RadioButton
+                        android:id="@+id/idReservacionRadioButtonPrecioAltoBajo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precio Alto"
+                        android:textSize="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idReservacionRadioButtonPrecioBajoAlto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precio Bajo"
+                        android:textSize="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idReservacionRadioButtonCapacidadAltoBajo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Capacidad"
+                        android:textSize="10dp"/>
+
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccione Habitación"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>
+
+                <ListView
+                    android:id="@+id/idReservacionListViewHabitaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:smoothScrollbar="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha Inicio "
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="left"/>
+
+                    <EditText
+                        android:id="@+id/idReservacionEditTextFechaInicio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:hint="12/12/1999"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha Final  "
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="left"/>
+
+                    <EditText
+                        android:id="@+id/idReservacionEditTextFechaFinal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:hint="01/01/2000"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precio Total"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        android:gravity="left"/>
+
+                    <EditText
+                        android:id="@+id/idReservacionEditTextPrecioTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="789.9"
+                        android:textSize="24dp"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/idReservacionButtonReservar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reservar"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_gravity="center_horizontal"/>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

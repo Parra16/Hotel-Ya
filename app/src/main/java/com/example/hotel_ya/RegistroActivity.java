@@ -44,6 +44,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -78,6 +79,7 @@ public class RegistroActivity extends AppCompatActivity {
     //Firebase
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
+    DatabaseReference databaseReferenceHotel;
     StorageReference storageProfilePicsRef;
 
     //Imagenes
@@ -102,6 +104,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("RTDB_Users");
+        databaseReferenceHotel = FirebaseDatabase.getInstance().getReference().child("RTDB_Hotels");
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("STORAGE_Users_Profile_Pics");
 
         asignar();
@@ -224,110 +227,177 @@ public class RegistroActivity extends AppCompatActivity {
                 if (estaVacio()){
                     //Toast.makeText(RegisterActivity.this, sCorreo+ sContrasenia+ sNombre+ sApellidos+ sRuta+ sTelefono+ sPais+ sEstado+ sCodigoPostal+ sDomicilio+ sSexo+ sFechaNacimiento+ sTipoUsuario, Toast.LENGTH_SHORT).show();
 
+                    mAuth.signOut();
+
                     mAuth.createUserWithEmailAndPassword(sCorreo, sContrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            Toast.makeText(RegistroActivity.this, "Datos Registrados", Toast.LENGTH_SHORT).show();
+                            if ( task.isSuccessful() ){
 
-                            mAuth.signInWithEmailAndPassword(sCorreo, sContrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(RegistroActivity.this, "Datos Registrados", Toast.LENGTH_SHORT).show();
 
-                                    if (imageUri != null){
+                                mAuth.signInWithEmailAndPassword(sCorreo, sContrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                        final StorageReference fileRef = storageProfilePicsRef.child( mAuth.getCurrentUser().getUid()+".jpg");
+                                        if (task.isSuccessful()){
 
-                                        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                            @Override
-                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                            if (imageUri != null){
 
-                                                Toast.makeText(RegistroActivity.this, "Subiendo", Toast.LENGTH_SHORT).show();
+                                                final StorageReference fileRef = storageProfilePicsRef.child( mAuth.getCurrentUser().getUid()+".jpg");
 
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-
-                                                Toast.makeText(RegistroActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
-                                            }
-                                        }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-
-                                                UploadTask.TaskSnapshot downloadUri = null;
-                                                downloadUri = task.getResult();
-                                                Task<Uri> result = downloadUri.getStorage().getDownloadUrl();
-                                                result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                                     @Override
-                                                    public void onSuccess(Uri uri) {
+                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                                                        String aux = uri.toString();
+                                                        Toast.makeText(RegistroActivity.this, "Subiendo", Toast.LENGTH_SHORT).show();
 
-                                                        String aux_ID = mAuth.getCurrentUser().getUid();
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
 
-                                                        myUri = aux;
+                                                        Toast.makeText(RegistroActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
-                                                        HashMap<String, Object> userMap = new HashMap<>();
-                                                        userMap.put("c_usu_aa_id_usuario", aux_ID);
+                                                    }
+                                                }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 
-                                                        userMap.put("c_usu_ab_correo", sCorreo);
-                                                        userMap.put("c_usu_ac_contrasenia", sContrasenia);
+                                                        if ( task.isSuccessful() ){
 
-                                                        userMap.put("c_usu_ad_nombre", sNombre);
-                                                        userMap.put("c_usu_ae_apellidos", sApellidos);
-                                                        userMap.put("c_usu_af_ruta_img", myUri);
-                                                        userMap.put("c_usu_ag_telefono", sTelefono);
-                                                        userMap.put("c_usu_ah_pais", sPais);
-                                                        userMap.put("c_usu_ai_estado", sEstado);
-                                                        userMap.put("c_usu_aj_codigo_postal", sCodigoPostal);
-                                                        userMap.put("c_usu_ak_domicilio", sDomicilio);
-                                                        userMap.put("c_usu_al_sexo", sSexo);
-                                                        userMap.put("c_usu_am_fecha_nacimiento", sFechaNacimiento);
-                                                        userMap.put("c_usu_an_reputacion", 0);
+                                                            UploadTask.TaskSnapshot downloadUri = null;
+                                                            downloadUri = task.getResult();
+                                                            Task<Uri> result = downloadUri.getStorage().getDownloadUrl();
+                                                            result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                @Override
+                                                                public void onSuccess(Uri uri) {
 
-                                                        userMap.put("c_usu_ao_fecha_creacion", getFechaMilisegundos() * -1);
-                                                        userMap.put("c_usu_ap_status", 1);
-                                                        userMap.put("c_usu_aq_permiso_hotel", aux_permiso_hotel);
-                                                        userMap.put("c_usu_ar_tipo_usuario", sTipoUsuario);
+                                                                    String aux = uri.toString();
 
-                                                        databaseReference.child( "Usuarios1" ).child( aux_ID ).setValue( userMap ).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                Toast.makeText(RegistroActivity.this, "Completado ", Toast.LENGTH_LONG).show();
-                                                                mAuth.signOut();
-                                                                limpiar();
+                                                                    String aux_ID = mAuth.getCurrentUser().getUid();
 
-                                                            }
-                                                        }).addOnFailureListener(new OnFailureListener() {
-                                                            @Override
-                                                            public void onFailure(@NonNull Exception e) {
-                                                                Toast.makeText(RegistroActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        });
+                                                                    myUri = aux;
+
+                                                                    HashMap<String, Object> userMap = new HashMap<>();
+                                                                    userMap.put("c_usu_aa_id_usuario", aux_ID);
+
+                                                                    userMap.put("c_usu_ab_correo", sCorreo);
+                                                                    userMap.put("c_usu_ac_contrasenia", sContrasenia);
+
+                                                                    userMap.put("c_usu_ad_nombre", sNombre);
+                                                                    userMap.put("c_usu_ae_apellidos", sApellidos);
+                                                                    userMap.put("c_usu_af_ruta_img", myUri);
+                                                                    userMap.put("c_usu_ag_telefono", sTelefono);
+                                                                    userMap.put("c_usu_ah_pais", sPais);
+                                                                    userMap.put("c_usu_ai_estado", sEstado);
+                                                                    userMap.put("c_usu_aj_codigo_postal", sCodigoPostal);
+                                                                    userMap.put("c_usu_ak_domicilio", sDomicilio);
+                                                                    userMap.put("c_usu_al_sexo", sSexo);
+                                                                    userMap.put("c_usu_am_fecha_nacimiento", sFechaNacimiento);
+                                                                    userMap.put("c_usu_an_reputacion", 0);
+
+                                                                    userMap.put("c_usu_ao_fecha_creacion", getFechaMilisegundos() * -1);
+                                                                    userMap.put("c_usu_ap_status", 1);
+                                                                    userMap.put("c_usu_aq_permiso_hotel", aux_permiso_hotel);
+                                                                    userMap.put("c_usu_ar_tipo_usuario", sTipoUsuario);
+
+                                                                    databaseReference.child( "Usuarios1" ).child( aux_ID ).setValue( userMap ).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                                                            if (task.isSuccessful()){
+
+                                                                                if ( sTipoUsuario.equals("Hoteles") ){
+                                                                                    String aux_ID_Hotel = UUID.randomUUID().toString();
+
+                                                                                    HashMap<String, Object> userMapHotel = new HashMap<>();
+                                                                                    userMapHotel.put("c_hot_aa_id_hotel", aux_ID_Hotel);
+
+                                                                                    userMapHotel.put("c_hot_ab_razon_social", "");
+                                                                                    userMapHotel.put("c_hot_ac_foto_hotel", "");
+                                                                                    userMapHotel.put("c_hot_ad_telefono", "");
+                                                                                    userMapHotel.put("c_hot_ae_pais", "México");
+                                                                                    userMapHotel.put("c_hot_af_estado", "");
+                                                                                    userMapHotel.put("c_hot_ag_domicilio", "");
+                                                                                    userMapHotel.put("c_hot_ah_codigo_postal", "");
+                                                                                    userMapHotel.put("c_hot_ai_coordenadas", "");
+                                                                                    userMapHotel.put("c_hot_aj_calificacion", "");
+                                                                                    userMapHotel.put("c_hot_ak_descripcion", "");
+                                                                                    userMapHotel.put("c_hot_al_total_habitaciones", "");
+
+                                                                                    userMapHotel.put("c_hot_am_fecha_creacion", getFechaMilisegundos() * -1 );
+                                                                                    userMapHotel.put("c_hot_an_status", 1);
+
+                                                                                    databaseReferenceHotel.child( "Hoteles1" ).child( aux_ID ).child( aux_ID_Hotel ).setValue( userMapHotel ).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                        @Override
+                                                                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                                                                            if ( task.isSuccessful() ){
+
+                                                                                                Toast.makeText(RegistroActivity.this, "Completado ", Toast.LENGTH_LONG).show();
+                                                                                                mAuth.signOut();
+                                                                                                limpiar();
+                                                                                                startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+
+                                                                                            }
+
+                                                                                        }
+                                                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                                                        @Override
+                                                                                        public void onFailure(@NonNull Exception e) {
+                                                                                            Toast.makeText(RegistroActivity.this, "Error Hoteles", Toast.LENGTH_SHORT).show();
+                                                                                        }
+                                                                                    });
+                                                                                } else {
+                                                                                    Toast.makeText(RegistroActivity.this, "Completado ", Toast.LENGTH_LONG).show();
+                                                                                    mAuth.signOut();
+                                                                                    limpiar();
+                                                                                    startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+                                                                                }
+
+                                                                            }
+
+                                                                        }
+                                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            Toast.makeText(RegistroActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
+
+                                                                }
+                                                            });
+
+                                                        }
 
                                                     }
                                                 });
 
                                             }
-                                        });
+
+                                        }
 
                                     }
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(RegistroActivity.this, "Error en la BD", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(RegistroActivity.this, "Error al Iniciar Sesion", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(RegistroActivity.this, "Error en la BD", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistroActivity.this, "Error al Crear la Sesión", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+
                         }
                     });
 

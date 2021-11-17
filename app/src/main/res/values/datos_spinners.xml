@@ -42,4 +42,21 @@
 
     </string-array>
 
+    <string-array name="tipoBanio">
+        <item>Tipo de Baño</item>
+        <item>Cuarto de Baño + Bañera</item>
+        <item>Cuarto de Baño + Ducha</item>
+        <item>Cuarto de Baño Completo + Bañera</item>
+        <item>Cuarto de Baño Completo + Ducha</item>
+    </string-array>
+
+    <string-array name="tipoCama">
+        <item>Tipo de Cama</item>
+        <item>Individual</item>
+        <item>Doble</item>
+        <item>Queen Size</item>
+        <item>King Size</item>
+    </string-array>
+
+
 </resources>

@@ -18,6 +18,16 @@
             android:title="@string/menu_slideshow" />
 
         <item
+            android:id="@+id/nav_mis_habitaciones"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_mis_habitaciones" />
+
+        <item
+            android:id="@+id/nav_reservacion"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_reservacion" />
+
+        <item
             android:id="@+id/nav_crear_hotel"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_agregarHotel" />
